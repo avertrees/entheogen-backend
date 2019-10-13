@@ -15,6 +15,10 @@ class UsersController < ApplicationController
         end
     end
  
+    def posts
+        render json: { posts: current_user.posts }, status: :accepted
+    end
+
     private
     def user_params
         params.require(:user).permit(:name, :username, :password, :bio, :image_url)
