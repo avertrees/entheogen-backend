@@ -16,9 +16,11 @@ Rails.application.routes.draw do
   #     end
   # end
   resources :users, only: [:show, :create]
+  resources :posts
   post '/login', to: 'auth#create'
   get '/profile', to: 'users#profile'
   get '/posts', to: 'users#posts'
-  resources :posts
+  get '/data/:id', to: 'posts#eeg' 
+  
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

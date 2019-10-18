@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-    before_action :find_post, only: [:update, :delete]
+    before_action :find_post, only: [:update, :delete, :eeg]
     def index
         @posts = current_user.posts
         render json: { posts: @posts }
@@ -28,10 +28,18 @@ class PostsController < ApplicationController
         end
     end
 
-
     def destroy
         @post.destroy
         render json: {}
+    end
+
+    def eeg
+        # byebug
+        if @post.data_file_url.nil?
+            render json: {data: {}}
+        else
+            render json: { data: @post.eeg }, status: :created
+        end
     end
 
     private
