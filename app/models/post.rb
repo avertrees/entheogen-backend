@@ -12,6 +12,7 @@ class Post < ApplicationRecord
   # Muse-AF00_2018-10-06--15-13-38_1538854660399.json
   #Muse-AF00_2018-11-15--06-27-16_1542282303988.json
   
+  firebase_url    = 'entheogen-a76f2.firebaseapp.com'
 
   # RestClient.post '/profile', file: File.new('photo.jpg', 'rb')
   def calculate_running_averages(array)
@@ -60,16 +61,18 @@ class Post < ApplicationRecord
           # p min
           # p max
           # d = scale(val, min, max, 20, 600)
-          # r = scale(val, min, max, -160, 100)
-          d = scale(val, min, max, 5, 200)
-          r = scale(val, min, max, -90, 90)
+          r = scale(val, min, max, -160, -20)
+          d = scale(val, min, max, 300, 500)
+          n = scale(val, min, max, 20, 100)
+          # r = scale(val, min, max, -90, 90)
           
           {
               average: val,
               rel_min: min,
               rel_max: max,
               scaled_dist: d,
-              scaled_rad: r 
+              scaled_rad: r,
+              scaled_noise: n 
               # scaled_dist: scale(val, min, max, 20, 600),
               # scaled_rad: scale(val, min, max, -160, 100) 
           }    

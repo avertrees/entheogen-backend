@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-    before_action :find_post, only: [:update, :delete, :eeg]
+    before_action :find_post, only: [:update, :destroy, :eeg]
     def index
         @posts = current_user.posts
         render json: { posts: @posts }
@@ -18,14 +18,12 @@ class PostsController < ApplicationController
     end
 
     def update
-        @post = Post.update(post_params)
-
-        if @post.valid?
-            @post.save
+        @post.update(post_params)
+        # if @post.valid?
             render json: { post: @post }, status: :created
-        else
-            render json: { error: 'failed to create post' }, status: :not_acceptable
-        end
+        # else
+            # render json: { error: 'failed to create post' }, status: :not_acceptable
+        # end
     end
 
     def destroy
