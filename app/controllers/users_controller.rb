@@ -29,6 +29,24 @@ class UsersController < ApplicationController
         render json: { posts: current_user.posts }, status: :accepted
     end
 
+    def images
+        # @user = User.find_by(id: params[:id])
+        images = current_user.posts.map do |post| 
+            post.image_url 
+        end
+
+        render json: { images: images}
+    end
+
+    def files
+        # @user = User.find_by(id: params[:id])
+        files = current_user.posts.map do |post| 
+            post.data_file_url 
+        end
+
+        render json: { files: files}
+    end
+
     private
     def user_params
         params.require(:user).permit(:name, :username, :password, :bio, :image_url)

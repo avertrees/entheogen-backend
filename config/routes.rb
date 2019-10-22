@@ -20,6 +20,8 @@ Rails.application.routes.draw do
   post '/login', to: 'auth#create'
   get '/profile', to: 'users#profile'
   get '/posts', to: 'users#posts'
+  get '/images', to: 'users#images'
+  get '/files', to: 'users#files'
   get '/data/:id', to: 'posts#eeg' 
   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
