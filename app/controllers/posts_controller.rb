@@ -1,8 +1,12 @@
 class PostsController < ApplicationController
-    before_action :find_post, only: [:update, :destroy, :eeg]
+    before_action :find_post, only: [:show, :update, :destroy, :eeg]
     def index
         @posts = current_user.posts
         render json: { posts: @posts }
+    end
+
+    def show
+        render json: { post: @post }
     end
 
         
