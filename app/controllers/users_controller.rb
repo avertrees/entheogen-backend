@@ -18,9 +18,7 @@ class UsersController < ApplicationController
  
     def update
         @user = User.find_by(id: params[:id])
-        @user.update(name: user_params[:name],
-            bio: user_params[:bio],
-            image_url: user_params[:image_url])
+        @user.update(name: user_params[:name], bio: user_params[:bio], image_url: user_params[:image_url])
         render json: {user: @user}, status: :accepted
 
     end
