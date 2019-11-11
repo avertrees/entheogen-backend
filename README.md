@@ -4,7 +4,7 @@
 [Alessandra Vertrees](https://github.com/avertrees)
 
 ## Background
-This app is an extension of my undergraduate thesis project titled Entheogen. A description of this project can be fund [here](https://medium.com/@alessandravertrees/honors-research-paper-ee0002903569). 
+This app is an extension of my thesis project at Hunter College, “Entheogen”. A description of this project can be found[here](https://medium.com/@alessandravertrees/honors-research-paper-ee0002903569). 
 
  The Muse 2016 headset connects to the Muse Direct App via Bluetooth Low Energy. Once the headset is turned on and connected to Muse Direct, live data from all four sensors on the EEG is streamed and analyzed by the app. Muse Direct allows users to record EEG sessions or meditation sessions which are stored on the cloud and can be accessed by logging into [Muse Direct Cloud](https://musedirect.choosemuse.com/login?redirect=/)
 
