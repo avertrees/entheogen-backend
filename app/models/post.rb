@@ -1,29 +1,15 @@
-# require 'httparty'
-# require 'json'
-# require 'csv'
-# require 'pry'
 require 'rest-client'
 
 class Post < ApplicationRecord
-  belongs_to :user
-  # attr_accessor :eeg, :data_file_url
-  # byebug
-  
-  # Muse-AF00_2018-10-06--15-13-38_1538854660399.json
-  #Muse-AF00_2018-11-15--06-27-16_1542282303988.json
-  
+  belongs_to :user  
   firebase_url    = 'entheogen-a76f2.firebaseapp.com'
 
-  # RestClient.post '/profile', file: File.new('photo.jpg', 'rb')
   def calculate_running_averages(array)
     arr = array.map.with_index do |val, id|
       if id > 0 
-          # x = val 
-          # y = array[id-1]
           pre_avg = array[id-1]
           pre_sum = pre_avg * id
           len = id+1
-          # (val+array[id-1])/2
           (val+pre_sum)/len
       else 
           val
