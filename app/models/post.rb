@@ -32,10 +32,12 @@ class Post < ApplicationRecord
   end
 
   #function to scale events between two numbers
+  #reference - https://cycling74.com/forums/what's-the-math-behind-the-scale-object
+  
   def scale(x, xmin, xmax, ymin, ymax)
     xrange = xmax - xmin
     yrange = ymax - ymin
-    ymin + (x - xmin) * (yrange.to_f / xrange) 
+    ymin + (x - xmin) * (yrange.to_f / xrange)     
   end
 
   #get trough and peak for each average value
