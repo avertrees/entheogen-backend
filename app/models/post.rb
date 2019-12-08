@@ -33,7 +33,7 @@ class Post < ApplicationRecord
 
   #function to scale events between two numbers
   #reference - https://cycling74.com/forums/what's-the-math-behind-the-scale-object
-  
+
   def scale(x, xmin, xmax, ymin, ymax)
     xrange = xmax - xmin
     yrange = ymax - ymin
@@ -49,7 +49,7 @@ class Post < ApplicationRecord
       test = array.map.with_index do |val, id|
           # relative_minimum = min
           # relative_maximum = max
-          # if id != 0
+
           if  val < min 
               min = val    
           elsif val > max
@@ -58,15 +58,11 @@ class Post < ApplicationRecord
             min = val - 0.00000000000000001
             max = val
           end
-      
-          # end
-          # p min
-          # p max
-          # d = scale(val, min, max, 20, 600)
+    
           r = scale(val, min, max, -160, -20)
           d = scale(val, min, max, 300, 500)
           n = scale(val, min, max, 20, 100)
-          # r = scale(val, min, max, -90, 90)
+
           
           {
               average: val,
