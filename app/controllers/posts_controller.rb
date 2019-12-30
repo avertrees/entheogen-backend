@@ -12,12 +12,10 @@ class PostsController < ApplicationController
         
     def create
         @post = Post.create(post_params)
-
         if @post.valid?
-        # @token = encode_token({ user_id: @user.id })
-        render json: { post: @post }, status: :created
+            render json: { post: @post }, status: :created
         else
-        render json: { error: 'failed to create post' }, status: :not_acceptable
+            render json: { error: 'failed to create post' }, status: :not_acceptable
         end
     end
 
