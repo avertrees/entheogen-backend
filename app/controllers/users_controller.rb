@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
     skip_before_action :authorized, only: [:create]
-
     
     def profile
         render json: { user: UserSerializer.new(current_user), posts: current_user.posts }, status: :accepted
@@ -20,7 +19,6 @@ class UsersController < ApplicationController
         @user = User.find_by(id: params[:id])
         @user.update(name: user_params[:name], bio: user_params[:bio], image_url: user_params[:image_url])
         render json: {user: @user}, status: :accepted
-
     end
 
     def posts
@@ -41,7 +39,6 @@ class UsersController < ApplicationController
         files = current_user.posts.map do |post| 
             post.data_file_url 
         end
-
         render json: { files: files}
     end
 
