@@ -21,11 +21,7 @@ class PostsController < ApplicationController
 
     def update
         @post.update(post_params)
-        # if @post.valid?
-            render json: { post: @post }, status: :created
-        # else
-            # render json: { error: 'failed to create post' }, status: :not_acceptable
-        # end
+        render json: { post: @post }, status: :created
     end
 
     def destroy
