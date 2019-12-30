@@ -30,7 +30,6 @@ class PostsController < ApplicationController
     end
 
     def eeg
-        # byebug
         if @post.data_file_url.nil?
             render json: {data: {}}
         else
