@@ -30,12 +30,10 @@ class UsersController < ApplicationController
         images = current_user.posts.map do |post| 
             post.image_url 
         end
-
         render json: { images: images}
     end
 
     def files
-        # @user = User.find_by(id: params[:id])
         files = current_user.posts.map do |post| 
             post.data_file_url 
         end
