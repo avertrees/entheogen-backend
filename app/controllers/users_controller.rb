@@ -26,7 +26,6 @@ class UsersController < ApplicationController
     end
 
     def images
-        # @user = User.find_by(id: params[:id])
         images = current_user.posts.map do |post| 
             post.image_url 
         end
