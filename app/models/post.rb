@@ -2,7 +2,7 @@ require 'rest-client'
 
 class Post < ApplicationRecord
   belongs_to :user  
-  firebase_url    = 'entheogen-a76f2.firebaseapp.com'
+  # firebase_url    = 'entheogen-a76f2.firebaseapp.com'
 
   def calculate_running_averages(array)
     arr = array.map.with_index do |val, id|
